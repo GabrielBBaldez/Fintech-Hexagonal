@@ -24,7 +24,7 @@ public class WalletExceptionHandler {
     @ExceptionHandler(InsufficientBalanceException.class)
     public ProblemDetail handleInsuficientBalance(InsufficientBalanceException ex){
         ProblemDetail problem = ProblemDetail.forStatusAndDetail(
-                HttpStatus.UNPROCESSABLE_ENTITY,
+                HttpStatus.UNPROCESSABLE_CONTENT,
                 "Cannot debit %s from wallet %s: current balance is %s".formatted(
                         ex.getAttemptAmount().amount(),
                         ex.getWalletId(),
