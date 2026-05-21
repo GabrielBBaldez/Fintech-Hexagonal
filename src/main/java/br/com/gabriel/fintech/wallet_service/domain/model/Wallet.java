@@ -51,7 +51,7 @@ public class Wallet {
         this.balance = this.balance.add(amount);
     }
 
-    public WalletId getWalletId(){ return walletId;}
+    public WalletId getId(){ return walletId;}
     public String getOwnerId(){ return ownerId;}
     public Money getBalance(){return balance;}
     public long getVersion(){return version;}

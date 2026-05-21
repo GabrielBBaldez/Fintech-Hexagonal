@@ -12,7 +12,7 @@ public final class WalletPersistenceMapper {
 
     public static WalletJpaEntity toEntity(Wallet wallet){
         return new WalletJpaEntity(
-                wallet.getWalletId().value(),
+                wallet.getId().value(),
                 wallet.getOwnerId(),
                 wallet.getBalance().amount(),
                 wallet.getVersion(),
