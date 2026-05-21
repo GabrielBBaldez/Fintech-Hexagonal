@@ -50,7 +50,7 @@ public class WalletController {
     }
 
     @PostMapping("/{id}/debit")
-    public WalletResponse debit(@PathVariable UUID id,@PathVariable AmountRequest request) {
+    public WalletResponse debit(@PathVariable UUID id, @Valid @RequestBody AmountRequest request) {
         WalletId walletId = WalletDtoMapper.toWalletId(id);
         Money amount = WalletDtoMapper.toMoney(request.amount());
         Wallet wallet = debitWalletUseCase.execute(walletId, amount);

@@ -5,7 +5,9 @@ import br.com.gabriel.fintech.wallet_service.domain.model.Wallet;
 import br.com.gabriel.fintech.wallet_service.domain.model.WalletId;
 import br.com.gabriel.fintech.wallet_service.domain.port.in.GetWalletUseCase;
 import br.com.gabriel.fintech.wallet_service.domain.port.out.WalletRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class GetWalletService implements GetWalletUseCase {
 
     private final WalletRepository repository;
