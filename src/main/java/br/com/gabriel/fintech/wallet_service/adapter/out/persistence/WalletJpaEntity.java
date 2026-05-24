@@ -4,7 +4,7 @@ package br.com.gabriel.fintech.wallet_service.adapter.out.persistence;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.time.Instant;
 import java.util.UUID;
 
 @Entity
@@ -26,15 +26,15 @@ public class WalletJpaEntity {
     private long version;
 
     @Column(name = "created_at", nullable = false,updatable = false)
-    private OffsetDateTime createdAt;
+    private Instant createdAt;
 
     @Column(name = "updated_at", nullable = false)
-    private OffsetDateTime updatedAt;
+    private Instant updatedAt;
 
     protected WalletJpaEntity(){}
 
     public WalletJpaEntity(UUID id, String ownerId, BigDecimal balance, long version,
-                           OffsetDateTime createdAt, OffsetDateTime updatedAt){
+                           Instant createdAt, Instant updatedAt){
 
         this.id = id;
         this.ownerId = ownerId;
@@ -46,14 +46,14 @@ public class WalletJpaEntity {
 
     @PrePersist
     protected void onCreate(){
-        OffsetDateTime now = OffsetDateTime.now();
+        Instant now = Instant.now();
         this.createdAt = now;
         this.updatedAt = now;
     }
 
     @PreUpdate
     protected void onUpdate(){
-        this.updatedAt = OffsetDateTime.now();
+        this.updatedAt = Instant.now();
     }
 
     public UUID getId() {
@@ -88,19 +88,19 @@ public class WalletJpaEntity {
         this.version = version;
     }
 
-    public OffsetDateTime getCreatedAt() {
+    public Instant getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(OffsetDateTime createdAt) {
+    public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }
 
-    public OffsetDateTime getUpdatedAt() {
+    public Instant getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(OffsetDateTime updatedAt) {
+    public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
     }
 }
